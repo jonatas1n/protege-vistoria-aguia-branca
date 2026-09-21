@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Protege Vistoria em Águia Branca: agendamento de vistoria veicular com atendimento ágil e seguro.">
+  <meta name="theme-color" content="#0f2042">
+  <title>Protege Vistoria | Águia Branca - ES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: "#0f2042",
+            cobalt: "#1e40af",
+            amber: "#f59e0b",
+            "amber-dark": "#d97706",
+            canvas: "#f8fafc"
+          },
+          fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
+          boxShadow: {
+            soft: "0 12px 35px -16px rgba(15,32,66,.25)",
+            amber: "0 12px 30px -12px rgba(245,158,11,.65)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24; }
+    .filled { font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24; }
+    body { text-rendering: optimizeLegibility; }
+    input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; }
+  </style>
+</head>
+<body class="bg-canvas font-sans text-slate-900 antialiased">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy/95 text-white shadow-lg backdrop-blur">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Protege Vistoria - Início">
+        <svg aria-hidden="true" viewBox="0 0 64 64" class="h-12 w-12 shrink-0">
+          <defs>
+            <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1e40af"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+          </defs>
+          <path d="M32 4 56 14c0 28-24 44-24 44S8 42 8 14Z" fill="url(#shield)" stroke="#fbbf24" stroke-width="2.5"/>
+          <path d="m20 30 4-9h16l4 9 4 3v7h-4v-4H20v4h-4v-7Z" fill="#fff"/>
+          <circle cx="24" cy="32" r="2.5" fill="#fbbf24"/><circle cx="40" cy="32" r="2.5" fill="#fbbf24"/>
+          <circle cx="46" cy="46" r="9" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/>
+          <path d="m42 46 3 3 5-7" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>
+          <strong class="block text-lg font-extrabold leading-none tracking-tight">PROTEGE</strong>
+          <span class="mt-1 block text-[10px] font-bold tracking-[.18em] text-amber-400">VISTORIA AUTOMOTIVA</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Navegação principal">
+        <a href="#inicio" class="transition hover:text-amber-400">Início</a>
+        <a href="#servicos" class="transition hover:text-amber-400">Serviços</a>
+        <a href="#agendamento" class="transition hover:text-amber-400">Agendamento</a>
+        <a href="#diferenciais" class="transition hover:text-amber-400">Diferenciais</a>
+        <a href="#contato" class="transition hover:text-amber-400">Contato</a>
+      </nav>
+
+      <a href="#agendamento" class="hidden rounded-xl bg-amber px-5 py-3 text-sm font-extrabold text-navy shadow-amber transition hover:-translate-y-0.5 hover:bg-amber-400 sm:inline-flex">
+        Agendar vistoria
+      </a>
+      <button id="menuButton" type="button" class="grid h-11 w-11 place-items-center rounded-xl border border-white/20 lg:hidden" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <nav id="mobileMenu" class="hidden border-t border-white/10 bg-navy px-4 py-4 lg:hidden" aria-label="Navegação móvel">
+      <div class="mx-auto grid max-w-7xl gap-1">
+        <a href="#inicio" class="rounded-lg px-4 py-3 font-semibold hover:bg-white/10">Início</a>
+        <a href="#servicos" class="rounded-lg px-4 py-3 font-semibold hover:bg-white/10">Serviços</a>
+        <a href="#agendamento" class="rounded-lg px-4 py-3 font-semibold hover:bg-white/10">Agendamento</a>
+        <a href="#diferenciais" class="rounded-lg px-4 py-3 font-semibold hover:bg-white/10">Diferenciais</a>
+        <a href="#contato" class="rounded-lg px-4 py-3 font-semibold hover:bg-white/10">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-20">
+    <section id="inicio" class="relative overflow-hidden bg-navy text-white">
+      <div class="absolute inset-0 opacity-20" style="background-image:radial-gradient(circle at 15% 25%,#3b82f6 0,transparent 35%),radial-gradient(circle at 85% 65%,#f59e0b 0,transparent 25%)"></div>
+      <div class="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.08fr_.92fr] lg:px-8 lg:py-24">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+            <span class="material-symbols-outlined filled text-lg">verified</span>
+            Atendimento em Águia Branca • ES
+          </div>
+          <h1 class="max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+            Sua vistoria veicular com <span class="text-amber-400">agilidade e segurança</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Faça o pré-agendamento para transferência, segunda via e vistoria cautelar. Atendimento organizado e orientação em cada etapa.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#agendamento" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-amber px-7 py-4 font-extrabold text-navy shadow-amber transition hover:-translate-y-0.5 hover:bg-amber-400">
+              <span class="material-symbols-outlined">event_available</span> Pré-agendar agora
+            </a>
+            <a href="#servicos" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-4 font-bold transition hover:bg-white/10">
+              Conhecer serviços <span class="material-symbols-outlined">arrow_downward</span>
+            </a>
+          </div>
+          <div class="mt-10 grid max-w-xl grid-cols-3 gap-3 border-t border-white/10 pt-7">
+            <div><strong class="block text-lg text-amber-400 sm:text-2xl">Ágil</strong><span class="text-xs text-slate-400 sm:text-sm">Atendimento</span></div>
+            <div><strong class="block text-lg text-amber-400 sm:text-2xl">Digital</strong><span class="text-xs text-slate-400 sm:text-sm">Pré-cadastro</span></div>
+            <div><strong class="block text-lg text-amber-400 sm:text-2xl">Seguro</strong><span class="text-xs text-slate-400 sm:text-sm">Processo</span></div>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-lg">
+          <div class="absolute -inset-4 rotate-3 rounded-[2rem] bg-cobalt/50"></div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white p-7 text-slate-900 shadow-2xl sm:p-9">
+            <div class="flex items-start justify-between gap-4">
+              <div><span class="text-xs font-extrabold uppercase tracking-widest text-amber-dark">Agendamento expresso</span><h2 class="mt-1 text-2xl font-extrabold text-navy">Reserve seu atendimento</h2></div>
+              <span class="material-symbols-outlined filled rounded-full bg-amber-100 p-3 text-amber-dark">bolt</span>
+            </div>
+            <ol class="mt-8 space-y-5">
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-cobalt font-extrabold text-white">1</span><div><strong class="text-navy">Informe o veículo</strong><p class="mt-1 text-sm text-slate-500">Placa e categoria para adiantar o cadastro.</p></div></li>
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-cobalt font-extrabold text-white">2</span><div><strong class="text-navy">Escolha o serviço</strong><p class="mt-1 text-sm text-slate-500">Selecione a vistoria ideal para sua necessidade.</p></div></li>
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-cobalt font-extrabold text-white">3</span><div><strong class="text-navy">Solicite a confirmação</strong><p class="mt-1 text-sm text-slate-500">Envie os dados para concluir o atendimento.</p></div></li>
+            </ol>
+            <a href="#agendamento" class="mt-8 flex items-center justify-center gap-2 rounded-xl bg-navy px-6 py-4 font-bold text-white hover:bg-cobalt">Começar pré-agendamento <span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="scroll-mt-24 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <span class="text-sm font-extrabold uppercase tracking-widest text-amber-dark">Serviços</span>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">A vistoria certa para cada momento</h2>
+          <p class="mt-4 leading-7 text-slate-600">Selecione o motivo da vistoria e faça seu pré-cadastro em poucos minutos.</p>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article class="rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition hover:-translate-y-1">
+            <span class="material-symbols-outlined rounded-2xl bg-blue-100 p-4 text-3xl text-cobalt">swap_horiz</span>
+            <h3 class="mt-6 text-xl font-extrabold text-navy">Transferência</h3>
+            <p class="mt-3 leading-7 text-slate-600">Inspeção dos itens de identificação e segurança para o processo de transferência do veículo.</p>
+            <a href="#agendamento" data-service="transferencia" class="service-link mt-6 inline-flex items-center gap-1 font-bold text-cobalt">Pré-agendar <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+          </article>
+          <article class="rounded-2xl border-2 border-amber bg-white p-7 shadow-soft transition hover:-translate-y-1">
+            <div class="flex items-start justify-between"><span class="material-symbols-outlined rounded-2xl bg-amber-100 p-4 text-3xl text-amber-dark">document_scanner</span><span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">Muito procurada</span></div>
+            <h3 class="mt-6 text-xl font-extrabold text-navy">Segunda via</h3>
+            <p class="mt-3 leading-7 text-slate-600">Vistoria para emissão de segunda via de documentos conforme a necessidade do veículo.</p>
+            <a href="#agendamento" data-service="segunda-via" class="service-link mt-6 inline-flex items-center gap-1 font-bold text-cobalt">Pré-agendar <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+          </article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition hover:-translate-y-1">
+            <span class="material-symbols-outlined rounded-2xl bg-blue-100 p-4 text-3xl text-cobalt">fact_check</span>
+            <h3 class="mt-6 text-xl font-extrabold text-navy">Vistoria cautelar</h3>
+            <p class="mt-3 leading-7 text-slate-600">Análise detalhada para mais informação e segurança na compra ou venda do automóvel.</p>
+            <a href="#agendamento" data-service="cautelar" class="service-link mt-6 inline-flex items-center gap-1 font-bold text-cobalt">Pré-agendar <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="agendamento" class="scroll-mt-24 bg-slate-100 py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+        <div>
+          <span class="text-sm font-extrabold uppercase tracking-widest text-amber-dark">Pré-agendamento</span>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">Adiante seu atendimento</h2>
+          <p class="mt-5 leading-7 text-slate-600">Preencha os dados básicos. Nenhuma cobrança é feita nesta etapa.</p>
+          <div class="mt-8 rounded-2xl bg-navy p-6 text-white">
+            <div class="flex gap-4"><span class="material-symbols-outlined filled text-3xl text-amber-400">shield</span><div><strong class="text-lg">Dados protegidos</strong><p class="mt-2 text-sm leading-6 text-slate-300">As informações são usadas apenas para montar sua solicitação de atendimento.</p></div></div>
+          </div>
+        </div>
+
+        <form id="bookingForm" class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft sm:p-9">
+          <div class="grid gap-6 sm:grid-cols-2">
+            <label class="sm:col-span-2">
+              <span class="mb-2 block text-sm font-bold text-navy">Nome completo</span>
+              <input id="name" required autocomplete="name" class="h-13 w-full rounded-xl border border-slate-300 px-4 py-3.5 outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100" placeholder="Como podemos chamar você?">
+            </label>
+            <label>
+              <span class="mb-2 block text-sm font-bold text-navy">Placa do veículo</span>
+              <input id="plate" required maxlength="8" class="h-13 w-full rounded-xl border border-slate-300 px-4 py-3.5 font-bold uppercase tracking-widest outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100" placeholder="BRA2E19">
+            </label>
+            <label>
+              <span class="mb-2 block text-sm font-bold text-navy">Tipo de veículo</span>
+              <select id="vehicle" class="h-[54px] w-full rounded-xl border border-slate-300 bg-white px-4 outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100">
+                <option>Carro</option><option>Moto</option><option>Caminhão</option>
+              </select>
+            </label>
+            <label class="sm:col-span-2">
+              <span class="mb-2 block text-sm font-bold text-navy">Tipo de vistoria</span>
+              <select id="service" class="h-[54px] w-full rounded-xl border border-slate-300 bg-white px-4 outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100">
+                <option value="transferencia">Transferência de propriedade</option>
+                <option value="segunda-via">Segunda via de documento</option>
+                <option value="cautelar">Vistoria cautelar</option>
+              </select>
+            </label>
+            <label>
+              <span class="mb-2 block text-sm font-bold text-navy">Data desejada</span>
+              <input id="date" type="date" required class="h-[54px] w-full rounded-xl border border-slate-300 px-4 outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100">
+            </label>
+            <label>
+              <span class="mb-2 block text-sm font-bold text-navy">Turno</span>
+              <select id="shift" class="h-[54px] w-full rounded-xl border border-slate-300 bg-white px-4 outline-none transition focus:border-cobalt focus:ring-4 focus:ring-blue-100">
+                <option>Manhã</option><option>Tarde</option>
+              </select>
+            </label>
+          </div>
+          <button class="mt-7 flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-amber px-6 py-4 font-extrabold text-navy shadow-amber transition hover:-translate-y-0.5 hover:bg-amber-400" type="submit">
+            <span class="material-symbols-outlined">send</span> Gerar solicitação
+          </button>
+          <p id="formStatus" class="mt-4 hidden rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-800" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="diferenciais" class="scroll-mt-24 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center"><span class="text-sm font-extrabold uppercase tracking-widest text-amber-dark">Por que escolher</span><h2 class="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">Uma experiência simples do início ao fim</h2></div>
+        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="text-center"><span class="material-symbols-outlined rounded-full bg-blue-100 p-5 text-4xl text-cobalt">timer</span><h3 class="mt-5 font-extrabold text-navy">Atendimento ágil</h3><p class="mt-2 text-sm leading-6 text-slate-600">Fluxo organizado para reduzir seu tempo de espera.</p></div>
+          <div class="text-center"><span class="material-symbols-outlined rounded-full bg-amber-100 p-5 text-4xl text-amber-dark">engineering</span><h3 class="mt-5 font-extrabold text-navy">Equipe preparada</h3><p class="mt-2 text-sm leading-6 text-slate-600">Orientação clara durante todas as etapas da vistoria.</p></div>
+          <div class="text-center"><span class="material-symbols-outlined rounded-full bg-blue-100 p-5 text-4xl text-cobalt">task_alt</span><h3 class="mt-5 font-extrabold text-navy">Processo digital</h3><p class="mt-2 text-sm leading-6 text-slate-600">Pré-cadastro prático para facilitar o atendimento.</p></div>
+          <div class="text-center"><span class="material-symbols-outlined rounded-full bg-amber-100 p-5 text-4xl text-amber-dark">location_on</span><h3 class="mt-5 font-extrabold text-navy">Em Águia Branca</h3><p class="mt-2 text-sm leading-6 text-slate-600">Conveniência para motoristas da cidade e região.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="scroll-mt-24 bg-cobalt py-16 text-white">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+        <div><span class="text-sm font-bold uppercase tracking-widest text-blue-200">Protege Águia Branca</span><h2 class="mt-2 text-3xl font-extrabold">Pronto para adiantar sua vistoria?</h2><p class="mt-3 max-w-2xl text-blue-100">Envie os dados do pré-agendamento e tenha sua solicitação pronta para compartilhar.</p></div>
+        <a href="#agendamento" class="inline-flex min-h-14 shrink-0 items-center gap-2 rounded-xl bg-amber px-7 py-4 font-extrabold text-navy shadow-xl hover:bg-amber-400"><span class="material-symbols-outlined">calendar_month</span> Pré-agendar</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy py-10 text-slate-400">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-5 px-4 text-sm sm:px-6 md:flex-row md:items-center lg:px-8">
+      <div><strong class="block text-base text-white">Protege Vistoria</strong><span>Unidade Águia Branca • Espírito Santo</span></div>
+      <p>© <span id="year"></span> Protege Vistoria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="#agendamento" aria-label="Abrir pré-agendamento" class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-amber text-navy shadow-amber transition hover:scale-105 sm:h-auto sm:w-auto sm:grid-flow-col sm:gap-2 sm:px-5 sm:py-3">
+    <span class="material-symbols-outlined">event_available</span><span class="hidden text-sm font-extrabold sm:inline">Agendar</span>
+  </a>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const plateInput = document.getElementById("plate");
+    const dateInput = document.getElementById("date");
+    const bookingForm = document.getElementById("bookingForm");
+    const formStatus = document.getElementById("formStatus");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = !mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("hidden");
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.querySelector("span").textContent = isOpen ? "menu" : "close";
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.querySelector("span").textContent = "menu";
+    }));
+
+    document.querySelectorAll(".service-link").forEach((link) => link.addEventListener("click", () => {
+      document.getElementById("service").value = link.dataset.service;
+    }));
+
+    plateInput.addEventListener("input", () => {
+      plateInput.value = plateInput.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    });
+
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    dateInput.min = localToday;
+    dateInput.value = localToday;
+    document.getElementById("year").textContent = today.getFullYear();
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const message = [
+        "Olá! Gostaria de solicitar uma vistoria na Protege em Águia Branca.",
+        `Nome: ${document.getElementById("name").value}`,
+        `Placa: ${plateInput.value}`,
+        `Veículo: ${document.getElementById("vehicle").value}`,
+        `Serviço: ${document.getElementById("service").selectedOptions[0].text}`,
+        `Data: ${dateInput.value.split("-").reverse().join("/")}`,
+        `Turno: ${document.getElementById("shift").value}`
+      ].join("\n");
+
+      navigator.clipboard?.writeText(message).catch((error) => console.error("Não foi possível copiar a solicitação:", error));
+      formStatus.textContent = "Solicitação preparada e copiada. O canal oficial da unidade ainda não está publicado; compartilhe a mensagem com o atendimento confirmado da empresa.";
+      formStatus.classList.remove("hidden");
+      formStatus.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  </script>
+</body>
+</html>
